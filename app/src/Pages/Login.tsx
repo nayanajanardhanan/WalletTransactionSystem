@@ -42,9 +42,6 @@ const Login: React.FC = () => {
               <Button type="primary" htmlType="submit" loading={loading}>
                 Login
               </Button>
-              <Button type="default" onClick={() => navigate('/register')}>
-                Register
-              </Button>
             </div>
           </Form.Item>
         </Form>
