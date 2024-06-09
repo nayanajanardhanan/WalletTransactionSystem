@@ -6,6 +6,7 @@ import Register from './Pages/Register';
 import Balance from './Pages/Balance';
 import Deposit from './Pages/Deposit';
 import Withdraw from './Pages/Withdrawal';
+import TransactionHistory from './Pages/TransactionHistory';
 
 const App: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const App: React.FC = () => {
         <Route path="/balance" element={<Balance />} />
         <Route path="/deposit" element={<Deposit />} />
         <Route path="/withdraw" element={<Withdraw />} />
-        {/* Add more routes as needed */}
+        <Route path="/transactions" element={<TransactionHistory />} />
       </Routes>
     </Router>
   );

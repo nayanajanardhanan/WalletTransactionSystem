@@ -52,4 +52,5 @@ class TransactionHistoryView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return TransactionDetails.objects.all()
+        print(self.request.user.wallet)
+        return TransactionDetails.objects.filter(wallet_details=self.request.user.wallet)
