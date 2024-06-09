@@ -16,3 +16,15 @@ FRONTEND INSTALLATION GUIDE
 1. Move to app folder.
 2. Install the dependencies. - yarn install
 3. Start the application - yarn start
+
+![alt text](image.png)
+
+Click on the register button if account is not yet created. Else you can login using email and password.
+
+![alt text](image-1.png)
+
+After login balance enquiry page will be displayed. To deposit amount, click on the Deposit button. To withdraw amount, click on the Withdraw button. Following pages will be shown based on the choice(deposit or withdraw), pages will be displayed and amount can be entered and do the operation.
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
