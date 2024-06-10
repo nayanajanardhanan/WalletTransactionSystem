@@ -32,7 +32,7 @@ class WalletDepositView(generics.GenericAPIView):
             wallet.save()
             TransactionDetails.objects.create(wallet_details=wallet, transaction_amount=amount, transaction_type='deposit')
             return Response({'status': 'Deposit Successful'}, status=status.HTTP_201_CREATED)
-        return Response({'error':'Failed'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'error':'Invalid Amount deposited'}, status=status.HTTP_400_BAD_REQUEST)
 
 class WalletWithdrawView(generics.GenericAPIView):
     serializer_class = TransactionSerializer
