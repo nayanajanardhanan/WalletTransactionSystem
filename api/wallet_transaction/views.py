@@ -26,11 +26,13 @@ class WalletDepositView(generics.GenericAPIView):
     @db_transaction.atomic
     def post(self, request, *args, **kwargs):
         wallet = request.user.wallet
-        amount = request.data.get('amount')
-        wallet.balance +=  Decimal(amount)
-        wallet.save()
-        TransactionDetails.objects.create(wallet_details=wallet, transaction_amount=amount, transaction_type='deposit')
-        return Response({'status': 'Deposit Successful'}, status=status.HTTP_201_CREATED)
+        amount = Decimal(request.data.get('amount'))
+        if amount > 0:
+            wallet.balance +=  amount
+            wallet.save()
+            TransactionDetails.objects.create(wallet_details=wallet, transaction_amount=amount, transaction_type='deposit')
+            return Response({'status': 'Deposit Successful'}, status=status.HTTP_201_CREATED)
+        return Response({'error':'Failed'}, status=status.HTTP_400_BAD_REQUEST)
 
 class WalletWithdrawView(generics.GenericAPIView):
     serializer_class = TransactionSerializer
