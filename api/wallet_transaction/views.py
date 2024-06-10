@@ -42,7 +42,7 @@ class WalletWithdrawView(generics.GenericAPIView):
     def post(self, request, *args, **kwargs):
         wallet = request.user.wallet
         amount = Decimal(request.data.get('amount'))
-        if wallet.balance < amount:
+        if wallet.balance < amount and amount < 0:
             return Response({'error': 'Insufficient Balance'}, status=status.HTTP_400_BAD_REQUEST)
         wallet.balance -= amount
         wallet.save()
